@@ -23,5 +23,10 @@ module HomebusWebhook
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # use the in-process async job adapter
+    # this will lose jobs on exit
+    # appropriate only for a low use system
+    config.active_job.queue_adapter = :async
   end
 end
